@@ -39,10 +39,10 @@ This function is a decorator which could be used like this in a test scenario
 The goal of the decorator is to override the return value of a function should the function throw an error (as is the case above).
 In short this use case came up because messages in an AWS SQS queue that don't return a valid response, 
 get re-added to the SQS queue. For systems that are load sensitive, this is most definitely not wanted as the
-continuous reprocessing of messages that make multiple calls to the load sensitive system, could overwhelm it resulting
+continuous reprocessing of messages that make multiple calls to the load sensitive system, could overwhelm it, resulting
 in downtime.
 
 Hence, this decorator was created after the fact for all SQS message processing functions, to ensure that in the event 
 that an existing function doesn't implement proper error correction, it at least returns a "completed" status to the queue.
 
-This decorator works for both Async and synchronous functions
+This decorator works for both Async and synchronous functions.
