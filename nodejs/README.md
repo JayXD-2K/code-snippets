@@ -36,7 +36,7 @@ This function is a decorator which could be used like this in a test scenario
       }
     }
 ```
-The goal of the decorator is to override the return value of a function should the function return an error.
+The goal of the decorator is to override the return value of a function should the function throw an error (as is the case above).
 In short this use case came up because messages in an AWS SQS queue that don't return a valid response, 
 get re-added to the SQS queue. For systems that are load sensitive, this is most definitely not wanted as the
 continuous reprocessing of messages that make multiple calls to the load sensitive system, could overwhelm it resulting
